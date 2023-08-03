@@ -1,0 +1,13 @@
+<odoo>
+    <record id="hospital_contact_person_view_form" model="ir.ui.view">
+        <field name="name">hospital.patient.contact.person.form</field>
+        <field name="model">hospital.patient.contact.person</field>
+        <field name="inherit_id" ref="hr_hospital.hospital_person_view_form"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <group name="header" position="inside">
+                <field name="relation"/>
+            </group>
+        </field>
+    </record>
+</odoo>

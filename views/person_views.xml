@@ -1,0 +1,41 @@
+<odoo>
+    <record id="hospital_person_view_tree" model="ir.ui.view">
+        <field name="name">hospital.person.tree</field>
+        <field name="model">hospital.person</field>
+        <field name="arch" type="xml">
+            <tree string="People">
+                <field name="full_name"/>
+                <field name="sex"/>
+
+                <field name="phone_number"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hospital_person_view_form" model="ir.ui.view">
+        <field name="name">hospital.person.form</field>
+        <field name="model">hospital.person</field>
+        <field name="arch" type="xml">
+            <form string="People">
+                <sheet>
+                    <group>
+                        <group name="full_name" string="Full Name">
+                            <field name="name"/>
+                            <field name="surname"/>
+                            <field name="patronymic"/>
+                        </group>
+                        <group name="header" string="">
+                            <field name="photo" widget="image" class="oe_avatar oe_left"/>
+                            <field name="sex"/>
+                        </group>
+                        <group name="contact_info" string="Contact Info">
+                            <field name="phone_number" widget='phone'/>
+                            <field name="email" widget='email'/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
