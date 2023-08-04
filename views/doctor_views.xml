@@ -13,6 +13,8 @@
         <field name="arch" type="xml">
             <field name="full_name" position="after">
                 <field name="specialty"/>
+                <field name="is_intern"/>
+                <field name="mentor_id" attrs="{'invisible': [('is_intern', '=', False)]}"/>
             </field>
         </field>
     </record>
@@ -23,8 +25,13 @@
         <field name="inherit_id" ref="hr_hospital.hospital_person_view_form"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <group name="header" position="after">
-                <field name="specialty"/>
+            <group name="contact_info" position="after">
+                <group string='Additional Info'>
+                    <field name="specialty"/>
+                    <field name="is_intern"/>
+                    <field name="mentor_id" attrs="{'invisible': [('is_intern', '=', False)]}"
+                        domain="[('is_intern', '=', False)]"/>
+                </group>
             </group>
         </field>
     </record>

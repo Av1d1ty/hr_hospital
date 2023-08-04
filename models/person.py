@@ -9,7 +9,7 @@ class Person(models.AbstractModel):
     name = fields.Char(required=True)
     surname = fields.Char(required=True)
     patronymic = fields.Char()
-    full_name = fields.Char(compute='_compute_full_name')
+    full_name = fields.Char(compute='_compute_full_name', store=True)
 
     phone_number = fields.Char(copy=False)
     email = fields.Char(copy=False)
