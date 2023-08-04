@@ -16,9 +16,19 @@ class Patient(models.Model):
     rntrc = fields.Integer()
 
     contact_person_ids = fields.Many2many('hospital.patient.contact.person')
+    personal_doctor_id = fields.Many2one('hospital.doctor')
 
     @api.depends('birthday')
     def _compute_age(self):
         for patient in self:
             if patient.birthday:
                 patient.age = (fields.Date.today() - patient.birthday).days / 365.2425
+
+    @api.onchange('personal_doctor_id')
+    def _onchange_personal_doctor(self):
+        if self.personal_doctor_id:
+            self.env['hospital.doctor.personal.doctor.history'].create({
+                'doctor_id': self.personal_doctor_id.id,
+                'patient_id': self._origin.id,
+                'assignment_date': fields.Date().today()
+            })

@@ -12,6 +12,7 @@
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <field name="full_name" position="after">
+                <field name="personal_doctor_id"/>
                 <field name="nationality"/>
             </field>
         </field>
@@ -25,12 +26,15 @@
         <field name="arch" type="xml">
             <group name="contact_info" position="after">
                 <group name="additional_info" string="Additional Info">
+                    <field name="personal_doctor_id"/>
                     <field name="birthday"/>
                     <field name="age"/>
-                    <field name="contact_person_ids"/>
                     <field name="nationality"/>
                     <field name="document_no"/>
                 </group>
+            </group>
+            <group name="contact_info" position="inside">
+                <field name="contact_person_ids"/>
             </group>
         </field>
     </record>

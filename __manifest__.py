@@ -13,6 +13,7 @@
         'views/disease_type_views.xml',
         'views/disease_views.xml',
         'views/doctor_appointment_views.xml',
+        'views/doctor_personal_doctor_history.xml',
     ],
     'author': "Av1d1ty",
     'category': 'HR',
