@@ -6,4 +6,4 @@ class Disease(models.Model):
     _description = 'Disease directory'
 
     name = fields.Char()
-    type = fields.Many2one('hospital.disease.type')
+    disease_type_id = fields.Many2one('hospital.disease.type')

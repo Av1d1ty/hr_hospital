@@ -1,0 +1,35 @@
+<odoo>
+    <record id="hospital_medical_test_type_action" model="ir.actions.act_window">
+        <field name="name">Medical Test Types</field>
+        <field name="res_model">hospital.medical.test.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="hospital_medical_test_type_view_tree" model="ir.ui.view">
+        <field name="name">hospital.medical.test.type.tree</field>
+        <field name="model">hospital.medical.test.type</field>
+        <field name="arch" type="xml">
+            <tree string="Medical Test Types">
+                <field name="name"/>
+                <field name="parent_id"/>
+                <field name="child_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hospital_medical_test_type_view_form" model="ir.ui.view">
+        <field name="name">hospital.medical.test.type.form</field>
+        <field name="model">hospital.medical.test.type</field>
+        <field name="arch" type="xml">
+            <form string="Medical Test Types">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parent_id"/>
+                        <field name="child_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

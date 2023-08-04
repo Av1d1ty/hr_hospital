@@ -1,9 +1,9 @@
 from odoo import api, fields, models
 
 
-class DiseaseType(models.Model):
-    _name = 'hospital.disease.type'
-    _description = 'Catalog of disease types'
+class MedicalTestType(models.Model):
+    _name = 'hospital.medical.test.type'
+    _description = 'Medical test type'
     _parent_name = 'parent_id'
     _parent_store = True
     _rec_name = 'complete_name'
@@ -11,11 +11,9 @@ class DiseaseType(models.Model):
 
     name = fields.Char(required=True, index=True)
     complete_name = fields.Char(compute='_compute_complete_name', recursive=True, store=True)
-    parent_id = fields.Many2one('hospital.disease.type', ondelete='cascade')
+    parent_id = fields.Many2one('hospital.medical.test.type', ondelete='cascade')
     parent_path = fields.Char(unaccent=False, index=True)
-    child_ids = fields.One2many('hospital.disease.type', 'parent_id')
-
-    disease_ids = fields.One2many('hospital.disease', 'disease_type_id', string='Diseases')
+    child_ids = fields.One2many('hospital.medical.test.type', 'parent_id')
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
