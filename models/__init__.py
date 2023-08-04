@@ -6,3 +6,4 @@ from . import doctor_specialty
 from . import disease
 from . import disease_type
 from . import patient_contact_person
+from . import doctor_appointment

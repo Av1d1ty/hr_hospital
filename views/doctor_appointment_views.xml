@@ -1,0 +1,45 @@
+<odoo>
+    <record id="hospital_doctor_appointment_action" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">hospital.doctor.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="hospital_doctor_appointment_view_tree" model="ir.ui.view">
+        <field name="name">hospital.doctor.appointment.tree</field>
+        <field name="model">hospital.doctor.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="Appointments">
+                <field name="date"/>
+                <field name="time" widget='float_time'/>
+                <field name="doctor_id"/>
+                <field name="patient_id"/>
+                <field name="diagnosis_id"/>
+                <field name="recommendations"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hospital_doctor_appointment_view_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.appointment.form</field>
+        <field name="model">hospital.doctor.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointments">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="time" widget='float_time'/>
+                            <field name="doctor_id"/>
+                            <field name="patient_id"/>
+                        </group>
+                        <group>
+                            <field name="diagnosis_id"/>
+                            <field name="recommendations"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

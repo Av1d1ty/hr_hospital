@@ -2,6 +2,7 @@
     <menuitem id="hospital_menu_root" name="HR Hospital">
         <menuitem id="hospital_menu_doctors" name="Doctors" sequence="10">
             <menuitem id="hospital_doctor_menu_action" action="hospital_doctor_action"/>
+            <menuitem id="hospital_doctor_appointment_menu_action" action="hospital_doctor_appointment_action"/>
         </menuitem>
 
         <menuitem id="hospital_menu_patients" name="Patients" sequence="20">
