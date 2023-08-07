@@ -10,6 +10,8 @@ class DoctorAppointment(models.Model):
     patient_id = fields.Many2one('hospital.patient', required=True)
     date = fields.Date(required=True)
     time = fields.Float(required=True)
+
+    test_ids = fields.One2many('hospital.medical.test', 'appointment_id', string='Medical tests')
     diagnosis_id = fields.Many2one('hospital.patient.diagnosis')
     recommendations = fields.Text()
 
@@ -18,3 +20,9 @@ class DoctorAppointment(models.Model):
         for a in self:
             if a.doctor_id.full_name and a.date and a.time:
                 a.name = f'{a.date} {a.doctor_id.full_name}/ {a.patient_id.surname}'
+
+    def write(self, vals):
+        diagnosis_id = vals.get('diagnosis_id')
+        if diagnosis_id:
+            self.test_ids.diagnosis_id = diagnosis_id
+        return super().write(vals)

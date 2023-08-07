@@ -29,11 +29,13 @@
                         <group>
                             <field name="patient_id"/>
                             <field name="doctor_id"/>
+                            <field name="appointment_id"/>
                         </group>
                         <group>
                             <field name="test_type_id"/>
                             <field name="sample_id"/>
                             <field name="conclusion"/>
+                            <field name="diagnosis_id"/>
                         </group>
                     </group>
                 </sheet>

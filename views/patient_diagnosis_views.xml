@@ -35,6 +35,7 @@
                             <field name="disease_id"/>
                             <field name="prescription"/>
                         </group>
+                        <field name="test_ids"/>
                     </group>
                 </sheet>
             </form>
