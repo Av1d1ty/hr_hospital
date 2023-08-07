@@ -12,3 +12,5 @@ from . import medical_test
 from . import medical_test_type
 from . import sample
 from . import sample_type
+from . import doctor_schedule
+from . import doctor_appointment_hours

@@ -37,6 +37,7 @@
                         <group>
                             <field name="diagnosis_id"/>
                             <field name="recommendations"/>
+                            <field name="done"/>
                         </group>
                         <field name="test_ids"/>
                     </group>

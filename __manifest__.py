@@ -18,6 +18,8 @@
         'views/medical_test_type_views.xml',
         'views/sample_views.xml',
         'views/sample_type_views.xml',
+        'views/doctor_schedule_views.xml',
+        'views/doctor_appointment_hours_views.xml',
     ],
     'author': "Av1d1ty",
     'category': 'HR',

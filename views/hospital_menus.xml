@@ -4,6 +4,7 @@
             <menuitem id="hospital_doctor_menu_action" action="hospital_doctor_action"/>
             <menuitem id="hospital_doctor_appointment_menu_action" action="hospital_doctor_appointment_action"/>
             <menuitem id="hospital_doctor_personal_doctor_history_menu_action" action="hospital_doctor_personal_doctor_history_action"/>
+            <menuitem id="hospital_doctor_schedule_menu_action" action="hospital_doctor_schedule_action"/>
         </menuitem>
 
         <menuitem id="hospital_menu_patients" name="Patients" sequence="20">
@@ -21,6 +22,8 @@
 
             <menuitem id="hospital_sample_menu_action" action="hospital_sample_action"/>
             <menuitem id="hospital_sample_type_menu_action" action="hospital_sample_type_action"/>
+
+            <menuitem id="hospital_doctor_appointment_hours_menu_action" action="hospital_doctor_appointment_hours_action"/>
         </menuitem>
 
     </menuitem>
