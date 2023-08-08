@@ -10,7 +10,7 @@ class MedicalTest(models.Model):
     doctor_id = fields.Many2one('hospital.doctor', string="Doctor who prescribed", required=True)
     test_type_id = fields.Many2one('hospital.medical.test.type')
     sample_id = fields.Many2one('hospital.sample')
-    appointment_id = fields.Many2one('hospital.doctor.appointment')
+    appointment_id = fields.Many2one('hospital.doctor.appointment', index=True)
     conclusion = fields.Text()
     diagnosis_id = fields.Many2one('hospital.patient.diagnosis')
 

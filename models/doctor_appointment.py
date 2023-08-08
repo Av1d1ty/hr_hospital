@@ -6,8 +6,8 @@ class DoctorAppointment(models.Model):
     _description = 'Doctor appointment'
 
     name = fields.Char(compute='_compute_name')
-    doctor_id = fields.Many2one('hospital.doctor', required=True)
-    patient_id = fields.Many2one('hospital.patient', required=True)
+    doctor_id = fields.Many2one('hospital.doctor', required=True, index=True)
+    patient_id = fields.Many2one('hospital.patient', required=True, index=True)
     date = fields.Date(required=True)
     time = fields.Float(required=True)
 

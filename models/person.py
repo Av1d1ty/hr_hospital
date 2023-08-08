@@ -6,10 +6,10 @@ class Person(models.AbstractModel):
     _description = 'Abstract model of a person'
     _rec_name = 'full_name'
 
-    name = fields.Char(required=True)
-    surname = fields.Char(required=True)
+    name = fields.Char(required=True, index=True)
+    surname = fields.Char(required=True, index=True)
     patronymic = fields.Char()
-    full_name = fields.Char(compute='_compute_full_name', store=True)
+    full_name = fields.Char(compute='_compute_full_name', store=True, index=True)
 
     phone_number = fields.Char(copy=False)
     email = fields.Char(copy=False)

@@ -6,11 +6,11 @@ class PatientDiagnosis(models.Model):
     _description = "Patient's diagnosis"
 
     name = fields.Char(compute='_compute_diagnosis_name')
-    doctor_id = fields.Many2one('hospital.doctor', required=True)
-    patient_id = fields.Many2one('hospital.patient', required=True)
-    # Can one diagnosis have multiple diseases?
+    doctor_id = fields.Many2one('hospital.doctor', required=True, index=True)
+    patient_id = fields.Many2one('hospital.patient', required=True, index=True)
 
     test_ids = fields.One2many('hospital.medical.test', 'diagnosis_id', string='Medical Tests')
+    # Can one diagnosis have multiple diseases?
     disease_id = fields.Many2one('hospital.disease', required=True)
     prescription = fields.Text()
     diagnosis_date = fields.Date(default=fields.Date().today())

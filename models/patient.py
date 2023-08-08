@@ -16,12 +16,15 @@ class Patient(models.Model):
     rntrc = fields.Integer()
 
     contact_person_ids = fields.Many2many('hospital.patient.contact.person')
-    personal_doctor_id = fields.Many2one('hospital.doctor')
+    personal_doctor_id = fields.Many2one('hospital.doctor', index=True)
 
     @api.depends('birthday')
+    # BUG craches when birthday is not set, event though the condition is not met
     def _compute_age(self):
         for patient in self:
             if patient.birthday:
+                print('---------------------------------\n',
+                      patient.birthday)
                 patient.age = (fields.Date.today() - patient.birthday).days / 365.2425
 
     @api.onchange('personal_doctor_id')
