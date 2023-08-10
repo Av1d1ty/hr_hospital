@@ -1,0 +1,29 @@
+<odoo>
+    <record id="hospital_doctor_appointment_reschedule_view_form" model="ir.ui.view">
+        <field name="name">hospital.doctor.appointment.reschedule.view.form</field>
+        <field name="model">hospital.doctor.appointment.reschedule</field>
+        <field name="arch" type="xml">
+            <form string="Reschedule">
+                <group>
+                    <field name="appointment_id"/>
+                    <field name="date"/>
+                    <field name="time" widget="float_time"/>
+                    <field name="doctor_id"/>
+                </group>
+                <footer>
+                    <button name="reschedule" type="object" string="Confirm" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hospital_doctor_appointment_reschedule_action" model="ir.actions.act_window">
+        <field name="name">Reschedule</field>
+        <field name="res_model">hospital.doctor.appointment.reschedule</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hospital_doctor_appointment_reschedule_view_form"/>
+        <field name="target">new</field>
+        <field name="context">{'default_appointment_id': active_id}</field>
+    </record>
+</odoo>

@@ -23,11 +23,10 @@ class Patient(models.Model):
     def _compute_age(self):
         for patient in self:
             if patient.birthday:
-                print('---------------------------------\n',
-                      patient.birthday)
                 patient.age = (fields.Date.today() - patient.birthday).days / 365.2425
 
-    @api.onchange('personal_doctor_id')
+    # FIX does not work when the value is changed through a wizard
+    @api.depends('personal_doctor_id')
     def _onchange_personal_doctor(self):
         if self.personal_doctor_id:
             self.env['hospital.doctor.personal.doctor.history'].create({

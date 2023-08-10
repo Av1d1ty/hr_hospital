@@ -4,6 +4,11 @@
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
+
+        'wizard/doctor_change_batch_views.xml',
+        'wizard/reschedule_appointment_views.xml',
+        'wizard/diagnosis_filter_views.xml',
+
         'views/hospital_menus.xml',
         'views/person_views.xml',
         'views/doctor_views.xml',
@@ -20,6 +25,8 @@
         'views/sample_type_views.xml',
         'views/doctor_schedule_views.xml',
         'views/doctor_appointment_hours_views.xml',
+
+        'report/disease_report.xml',
     ],
     'author': "Av1d1ty",
     'category': 'HR',

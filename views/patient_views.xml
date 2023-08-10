@@ -11,6 +11,15 @@
         <field name="inherit_id" ref="hr_hospital.hospital_person_view_tree"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
+            <header position="inside">
+                <button
+                    type="action"
+                    name="%(hospital_doctor_change_batch_action)d"
+                    string="Change doctor"
+                    class="btn-primary"
+                />
+            </header>
+
             <field name="full_name" position="after">
                 <field name="personal_doctor_id"/>
                 <field name="nationality"/>

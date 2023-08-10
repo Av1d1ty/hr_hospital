@@ -26,6 +26,9 @@
             <menuitem id="hospital_doctor_appointment_hours_menu_action" action="hospital_doctor_appointment_hours_action"/>
         </menuitem>
 
+        <menuitem id="hospital_menu_reporting" name="Reporting" sequence="40">
+            <menuitem id="hospital_diagnosis_filter_menu_action" action="hospital_diagnosis_filter_action"/>
+        </menuitem>
     </menuitem>
 </odoo>
 

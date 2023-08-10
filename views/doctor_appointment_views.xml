@@ -26,6 +26,15 @@
         <field name="model">hospital.doctor.appointment</field>
         <field name="arch" type="xml">
             <form string="Appointments">
+                <header>
+                    <button
+                        type="action"
+                        name="%(hospital_doctor_appointment_reschedule_action)d"
+                        string="Reschedule"
+                        class="btn-primary"
+                    />
+                </header>
+
                 <sheet>
                     <group>
                         <group>

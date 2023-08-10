@@ -1,0 +1,26 @@
+<odoo>
+    <record id="hospital_diagnosis_filter_view_form" model="ir.ui.view">
+        <field name="name">hospital.diagnosis.filter.form</field>
+        <field name="model">hospital.diagnosis.filter</field>
+        <field name="arch" type="xml">
+            <form string="Disease Report">
+                <group>
+                    <field name="year"/>
+                    <field name="month"/>
+                </group>
+                <footer class="button-box oe-right">
+                    <button name="print_report" type="object" string="Confirm" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="hospital_diagnosis_filter_action" model="ir.actions.act_window">
+        <field name="name">Disease Report</field>
+        <field name="res_model">hospital.diagnosis.filter</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="hospital_diagnosis_filter_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

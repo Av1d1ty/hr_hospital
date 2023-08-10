@@ -4,6 +4,8 @@
         <field name="model">hospital.person</field>
         <field name="arch" type="xml">
             <tree string="People">
+                <header></header>
+
                 <field name="full_name"/>
                 <field name="sex"/>
 
