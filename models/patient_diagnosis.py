@@ -15,9 +15,10 @@ class PatientDiagnosis(models.Model):
     prescription = fields.Text()
     diagnosis_date = fields.Date(default=fields.Date().today())
 
-    comment_required = fields.Boolean()
-    mentor_note = fields.Text()
-    approved = fields.Boolean()
+    comment_required = fields.Boolean(readonly=True)
+    # FIX: how to prohit all except mentors from editing these fields?
+    mentor_note = fields.Text(string="Mentor's Note", access="_check_mentor_access")
+    approved = fields.Boolean(access="_check_mentor_access")
 
     @api.depends('disease_id', 'patient_id')
     def _compute_diagnosis_name(self):
@@ -25,12 +26,12 @@ class PatientDiagnosis(models.Model):
             if diagnosis.patient_id and diagnosis.disease_id:
                 diagnosis.name = f'{diagnosis.patient_id.full_name}: {diagnosis.disease_id.name}'
 
-    # @api.model
-    # def create(self, vals):
-    #     doctor = self.env['hospital.doctor'].browse(vals['doctor_id'])
-    #     if doctor.is_intern:
-    #         vals['comment_required'] = True
-    #     return super().create(vals)
+    @api.model
+    def create(self, vals):
+        doctor = self.env['hospital.doctor'].browse(vals['doctor_id'])
+        if doctor.is_intern:
+            vals['comment_required'] = True
+        return super().create(vals)
 
     # @api.onchange('mentor_note')
     # def _onchange_mentor_note(self):
