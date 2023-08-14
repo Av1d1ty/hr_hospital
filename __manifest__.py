@@ -8,6 +8,7 @@
         'wizard/doctor_change_batch_views.xml',
         'wizard/reschedule_appointment_views.xml',
         'wizard/diagnosis_filter_views.xml',
+        'wizard/fill_schedule_views.xml',
 
         'views/hospital_menus.xml',
         'views/person_views.xml',

@@ -17,8 +17,8 @@ class PatientDiagnosis(models.Model):
 
     comment_required = fields.Boolean(readonly=True)
     # FIX: how to prohit all except mentors from editing these fields?
-    mentor_note = fields.Text(string="Mentor's Note", access="_check_mentor_access")
-    approved = fields.Boolean(access="_check_mentor_access")
+    mentor_note = fields.Text(string="Mentor's Note")
+    approved = fields.Boolean()
 
     @api.depends('disease_id', 'patient_id')
     def _compute_diagnosis_name(self):
