@@ -23,29 +23,13 @@ class FillSchedule(models.TransientModel):
             raise exceptions.ValidationError("Date must be a Monday.")
 
     def update_schedule(self):
-        # Doesn't work, eh
         weekdays = ('monday', 'tuesday', 'wednesday', 'thursday',
                     'friday', 'saturday', 'sunday')
-
-        # for day in weekdays:
-        #     tmp = self._fields[day].mapped('value')
-        #     print(tmp)
 
         target_date = self.date_from
         week_schedule = {}
         for i, day in enumerate(weekdays):
             week_schedule[target_date + relativedelta(days=i)] = self[day].ids
-# __AUTO_GENERATED_PRINT_VAR_START__
-        print('-'*9 + '\n', 'week_schedule:', week_schedule, '\n' + '-'*9) # __AUTO_GENERATED_PRINT_VAR_END__
-        # week_schedule = {
-        #     target_date: self.monday.ids,
-        #     target_date + relativedelta(days=1): self.tuesday.ids,
-        #     target_date + relativedelta(days=2): self.wednesday.ids,
-        #     target_date + relativedelta(days=3): self.thursday.ids,
-        #     target_date + relativedelta(days=4): self.friday.ids,
-        #     target_date + relativedelta(days=5): self.saturday.ids,
-        #     target_date + relativedelta(days=6): self.sunday.ids,
-        # }
 
         for day, hours in week_schedule.items():
             if not hours:
